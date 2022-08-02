@@ -4,35 +4,36 @@ from vpython import *
 #Daiana Dominikow
 #Final Fisica Teorica 1
 
-G=6.67e-11  #constante universal
-rt=1e9  #radio de la tierra
-mt=3e30 #masa1
-ml=2e30 #masa de la luna
+G=6.67e-11      #constante universal
+rt=6.378e6      #radio de la tierra
+mt=5.972e24     #masa de la tierra
+ml=7.348e22     #masa de la luna
 mu= mt*ml/(mt+ml)   #masa reducida
-rl=5e8 #radio de la luna
-d=2e10   #distancia de la luna a la tierra
+rl=1.7371e6     #radio de la luna
+d=384.4e6       #distancia de la luna a la tierra
 
 #primero creo las esferas y les doy sus atributos
 tierra = sphere(pos = vector(0,0,0), 
-                radius=rt*10, #multiplique 10 veces el radio para que se vea mejor
+                radius=rt*10,    #multiplique 10 veces el radio para que se vea mejor
                 color=color.cyan, 
                 make_trail=True)
                 
 luna = sphere(pos=tierra.pos+vector(d,0,0),
               radius=rl*10,
-              make_trail=True)
+              make_trail=True,
+              trail_type="points",
+              interval=10, retain=500)
 
 #la velocidad radial de la luna
 vl=sqrt(G*mt/d)
 
 #momento inicial del sistema
 tierra.p = vector(0,0,0) 
-luna.p = ml*vector(0,vl,0) #p = m*v
+luna.p = ml*vector(0,vl,0)  #p=m*v
 
 #defino mi tiempo
 t = 0
 dt = 360
-
 mes=24*3600*30
 
 #momento angular
