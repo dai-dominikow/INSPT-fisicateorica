@@ -24,8 +24,13 @@ SiriusB = sphere(pos=vector(d,0,0),
               make_trail=True
               )
 
+#Centro de masa!
+cm = (mA*SiriusA.pos+mB*SiriusB.pos)/(mA+mB)
+CM = sphere(pos=cm,
+            radius=0.1e9)
+
 #la velocidad de Sirius B
-vB=sqrt(G*mA/d)
+vB=sqrt(G*mA**2/(d*(mA+mB)))
 
 #momento inicial del sistema
 SiriusA.p = vector(0,0,0) 
@@ -43,6 +48,8 @@ l=mag(cross(SiriusA.pos,SiriusA.p)+cross(SiriusB.pos,SiriusB.p))
 grafico = graph(xtitle='Distancia (m)', ytitle = 'Energia (J)')
 fU = gcurve(color=color.green, dot=True) 
 
+
+
 #vamos a simular 6 meses con el metodo de Cromer - Euler
 while t<mes*6:
     rate(50) #velocidad de la simulacion
@@ -52,7 +59,8 @@ while t<mes*6:
     SiriusA.p = SiriusA.p - F*dt
     SiriusB.pos = SiriusB.pos + SiriusB.p*dt/mB
     SiriusA.pos = SiriusA.pos + SiriusA.p*dt/mA
-    
+    cm =  (mA*SiriusA.pos+mB*SiriusB.pos)/(mA+mB)#actualizo centro de masa
+    CM.pos = cm
     #para graficar la energía potencial efectiva del sistema
     Ug = -G*mA*mB/mag(r)            #potencial gravitatoria
     Uc = l**2 / (2*mu*mag(r)**2)    #potencial centrípeta
