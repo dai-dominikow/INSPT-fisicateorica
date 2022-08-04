@@ -52,7 +52,7 @@ fU = gcurve(color=color.green, dot=True)
 
 #vamos a simular 6 meses con el metodo de Cromer - Euler
 while t<mes*6:
-    rate(50) #velocidad de la simulacion
+    rate(20) #velocidad de la simulacion
     r = SiriusB.pos - SiriusA.pos
     F = -G*mA*mB*norm(r)/mag(r)**2 
     SiriusB.p = SiriusB.p + F*dt
