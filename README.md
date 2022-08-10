@@ -10,7 +10,7 @@ https://glowscript.org/#/user/daidominikow/folder/MyPrograms/program/Sirius
 
 #ENG
 
-Simulations for Theorethical Physics I & II - BS. Physics and Applied Physics  -INSPT- UTN 2022.  
+Simulations for Theorethical Physics I & II - BSc. Physics and Applied Physics  -INSPT- UTN 2022.  
 You can run and test this simulations on
 https://glowscript.org/#/user/daidominikow/folder/MyPrograms/program/LunaTierra
 https://glowscript.org/#/user/daidominikow/folder/MyPrograms/program/Sirius
